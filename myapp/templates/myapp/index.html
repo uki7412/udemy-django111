@@ -1,0 +1,31 @@
+{% extends 'myapp/base.html'%}
+
+{% block content %}
+<!-- Jumbotron -->
+<div class="p-5 text-center bg-light">
+  <h1 class="mb-3">MY First Blog</h1>
+  <h4 class="mb-3">This is my first blog</h4>
+  <a class="btn btn-primary" href="" role="button">Call to action</a>
+</div>
+<!-- Jumbotron -->
+<div class="row row-cols-1 row-cols-md-3 g-4">
+
+  {% for item in post_list %}
+  <div class="col">
+    <div class="card h-100">
+      <img src="https://mdbootstrap.com/img/new/standard/city/044.jpg" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{ item.title }}</h5>
+        <p class="card-text">{{ item.content}}</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div>
+  </div>
+
+  {% endfor %}
+
+</div>
+<!-- card -->
+{% endblock %}
