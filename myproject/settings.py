@@ -141,7 +141,8 @@ MEDIA_URL = '/media/'
 
 # DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#Herokuデプロイ
+# herokuのための追記
+
 import dj_database_url
 DATABASES['default'] = dj_database_url.config()
 
@@ -162,4 +163,5 @@ except ImportError:
 
 if not DEBUG:
     SECRET_KEY = os.environ['SECRET_KEY']
+
 
