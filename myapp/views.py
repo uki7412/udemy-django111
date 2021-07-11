@@ -1,6 +1,6 @@
 from django.shortcuts import render, resolve_url, redirect
 from django.http import HttpResponse, HttpResponseRedirect
-from django.views.generic import TemplateView, CreateView, DetailView, UpdateView, DeleteView,ListView
+from django.views.generic import TemplateView, CreateView, DetailView, UpdateView, DeleteView,ListView#djangoが持ってるviewの機能を引継ぐ
 from .models import Post, Like, Category#テーブルをインポート
 from django.urls import reverse_lazy
 from .forms import PostForm, LoginForm, SignUpForm, SearchForm
@@ -34,9 +34,9 @@ class Index(TemplateView):
 
 
 class PostCreate(LoginRequiredMixin, CreateView):
-    model = Post
-    form_class = PostForm
-    success_url = reverse_lazy('myapp:index')
+    model = Post#Postモデルの内容をcreateしますよ
+    form_class = PostForm#Postformはforms.pyで定義してimport
+    success_url = reverse_lazy('myapp:index')#登録が成功successしたらこのページindexに遷移するよ。reverse_lazyはdjangoからimport
 #ログイン中のユーザーをセットするため関数
     def form_valid(self, form):#formがvalidかどうか
         form.instance.author_id = self.request.user.id #authorをセット

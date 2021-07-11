@@ -6,8 +6,7 @@ app_name = 'myapp'
 urlpatterns = [
     # トップページ表示
     path('', views.Index.as_view(), name='index'),
-    # 新規投稿ページ表示
-    path('post_create', views.PostCreate.as_view(), name='post_create'),
+    path('post_create', views.PostCreate.as_view(), name='post_create'),# 新規投稿ページ表示
     path('post_detail/<int:pk>', views.PostDetail.as_view(), name='post_detail'),
     path('post_update/<int:pk>', views.PostUpdate.as_view(), name='post_update'),
     path('post_delete/<int:pk>', views.PostDelete.as_view(), name='post_delete'),

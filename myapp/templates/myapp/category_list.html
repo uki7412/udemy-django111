@@ -14,13 +14,13 @@
             <br>
             <div class="card">
                 <div class="card-body">
-                    <a href="">{{ category.name }}</a>&nbsp;<small>[&nbsp;{{ category.post_count }}&nbsp;]</small><br>
+                    <a href="{% url 'myapp:category_detail' category.name_en %}">{{ category.name }}</a>&nbsp;<small>[&nbsp;{{ category.post_count }}&nbsp;]</small><br>
                     <hr>
-                    {% for post in category.post_set.all|slice:":5" %}
+                    {% for post in category.post_set.all|slice:":5" %}<!--_set.allはdjangoが用意してくれてる機能。取り出されたcategoryのポストを全てセットしますよ。セットしたものをpostという名称で回していきます-->
                     <p><a href="{% url 'myapp:post_detail' post.id %}" style="color:black;">{{ post.title }}</a></p>
                     {% endfor %}
                     <br>
-                    <a href="">このカテゴリーの記事を全て見る</a>
+                    <a href="{% url 'myapp:category_detail' category.name_en %}">このカテゴリーの記事を全て見る</a>
                 </div>
             </div>
         </div>

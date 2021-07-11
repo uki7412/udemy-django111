@@ -11,7 +11,7 @@ class Category(models.Model):
 
   def post_count(self):
       n = Post.objects.filter(category = self).count()
-      return n 
+      return n
 
   def __str__(self):
       return self.name
@@ -22,7 +22,7 @@ class Post(models.Model):
   title = models.CharField('タイトル', max_length=50)
   content = models.TextField('内容', max_length=1000)
   category = models.ForeignKey('Category', on_delete=models.PROTECT)
-  thumbnail = models.ImageField(upload_to='images/', blank=True)
+  thumbnail = models.ImageField(upload_to='images/', blank=True)#画像
   created_at = models.DateTimeField(auto_now_add=True)
   updated_at = models.DateTimeField(auto_now=True)
 

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post
+from .models import Post #Postテーブル使うよ
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.models import User
 
@@ -8,7 +8,7 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = ('title', 'content', 'category', 'thumbnail')#post_form.htmlで表示するにはここ必要
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs):#cssのclassを反映させる定型文コピペで使い回して良い
         super().__init__(*args, **kwargs)
         for field in self.fields.values():
             field.widget.attrs['class'] = 'form-control'

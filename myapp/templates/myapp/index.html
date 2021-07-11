@@ -3,8 +3,8 @@
 {% block content %}
 <!-- Jumbotron -->
 <div class="p-5 text-center bg-light">
-  <h1 class="mb-3">{{ request.site.siteconfig.top_title }}</h1>
-  <h4 class="mb-3">{{ request.site.siteconfig.top_subtitle }}</h4>
+  <h1 class="mb-3">{{ request.site.siteconfig.top_title }}</h1><!-- sitemanage.py作ってサイト管理画面から変更できるように -->
+  <h4 class="mb-3">{{ request.site.siteconfig.top_subtitle }}</h4><!-- sitemanage.py作ってサイト管理画面から変更できるように -->
 </div>
 <!-- Jumbotron -->
 <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -20,7 +20,7 @@
       <div class="card-body">
         <h4 class="card-title">{{ item.title }}<small>{{ item.author }}</small></h4>
         <p>{{ item.category }}</p>
-        <p class="card-text">{{ item.content| safe | truncatechars_html:30 }}</p>
+        <p class="card-text">{{ item.content| safe | truncatechars_html:30 }}</p><!--トランケートで30文字まで表示。あとは詳細ページで見てね-->
       </div>
       <a href="{% url 'myapp:post_detail' item.id %}" type="button" class="btn btn-primary">もっと読む</a>
     </div>

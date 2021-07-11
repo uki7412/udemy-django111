@@ -39,11 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myapp',
-    'django.contrib.sites',
-    'sitemanage',
+    'django.contrib.sites',#sitemanage作ったらこれも
+    'sitemanage',#sitemanage作ったらこれも
 ]
 
-SITE_ID = 1
+SITE_ID = 1#sitemanage作ったらこれも。
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -54,7 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.contrib.sites.middleware.CurrentSiteMiddleware',
+    'django.contrib.sites.middleware.CurrentSiteMiddleware',#sitemanage作ったらこれも。これはサイトの内容を表示するためのもの
 ]
 
 ROOT_URLCONF = 'myproject.urls'
@@ -71,7 +71,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
-                'myapp.context_processors.all_category',
+                'myapp.context_processors.all_category',#myappの下のcontext_processorsの中のall_categoryという関数を全てのページで使えるようになる
             ],
         },
     },
@@ -133,8 +133,9 @@ STATIC_URL = '/static/'
 LOGIN_URL = 'myapp:login'
 LOGIN_REDIRECT_URL = 'myapp:index'
 
+# 画像はどこにおきますか
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+MEDIA_URL = '/media/'#メディアはmediaというフォルダに画像が保存されるという記述media/imagesというフォルダができてその下にthumbnailが保存される
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -148,9 +149,9 @@ DATABASES['default'] = dj_database_url.config()
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FOWARDED_PROTO', 'https')
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*']#アスタリスクはなんでもいいという意味。本来は独自ドメインwww.mydomain.comなどになる
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)#bootstrap使っているが管理画面はcss使っているのでこの記述が必要に
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
@@ -161,7 +162,7 @@ try:
 except ImportError:
     pass
 
-if not DEBUG:
-    SECRET_KEY = os.environ['SECRET_KEY']
+if not DEBUG:#DEBUGがFalseだったら、下の事やってという意味
+    SECRET_KEY = os.environ['SECRET_KEY']#Herokuの値を参照して、左に代入、値を保持するという意味
 
 

@@ -8,7 +8,7 @@ class SiteConfig(models.Model):
     meta_description = models.CharField('meta_description', max_length=300)
     meta_keywords = models.CharField('SEOキーワード', max_length=300)
     author = models.CharField('管理者', max_length=30)
-    top_title = models.CharField( 'TOPページタイトル', max_length=100)
+    top_title = models.CharField( 'TOPページタイトル', max_length=100)#html内jumbotronのタイトルHello, Good Night Blogの事
     top_subtitle = models.CharField('TOPページタイトル', max_length=200)
 
     def __str__(self):
