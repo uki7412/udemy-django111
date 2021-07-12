@@ -175,5 +175,5 @@ except ImportError:
 
 if not DEBUG:#DEBUGがFalseだったら、下の事やってという意味
     SECRET_KEY = os.environ['SECRET_KEY']#Herokuの値を参照して、左に代入、値を保持するという意味
-    AWS_ACCESS_KEY_ID = OS.ENVIRON['AWS_ACCESS_KEY_ID']
-    AWS_SECRET_ACCESS_KEY = OS.ENVIRON['AWS_SECRET_ACCESS_KEY']
+    AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
