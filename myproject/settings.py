@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'myapp',
     'django.contrib.sites',#sitemanage作ったらこれも
     'sitemanage',#sitemanage作ったらこれも
+    'storages',
 ]
 
 SITE_ID = 1#sitemanage作ったらこれも。
@@ -133,9 +134,13 @@ STATIC_URL = '/static/'
 LOGIN_URL = 'myapp:login'
 LOGIN_REDIRECT_URL = 'myapp:index'
 
+#S3のための記述
+AWS_LOCATION = 'media'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.s3Boto3Storage'
+
 # 画像はどこにおきますか
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'#メディアはmediaというフォルダに画像が保存されるという記述media/imagesというフォルダができてその下にthumbnailが保存される
+MEDIA_URL = "https:%s/%s/" %(AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -164,5 +169,5 @@ except ImportError:
 
 if not DEBUG:#DEBUGがFalseだったら、下の事やってという意味
     SECRET_KEY = os.environ['SECRET_KEY']#Herokuの値を参照して、左に代入、値を保持するという意味
-
-
+    AWS_ACCESS_KEY_ID = OS.ENVIRON['AWS_ACCESS_KEY_ID']
+    AWS_SECRET_ACCESS_KEY = OS.ENVIRON['AWS_SECRET_ACCESS_KEY']
