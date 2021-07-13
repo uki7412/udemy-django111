@@ -162,9 +162,9 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FOWARDED_PROTO', 'https')
 
 ALLOWED_HOSTS = ['*']#アスタリスクはなんでもいいという意味。本来は独自ドメインwww.mydomain.comなどになる
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)#bootstrap使っているが管理画面はcss使っているのでこの記述が必要に
+# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)#bootstrap使っているが管理画面はcss使っているのでこの記述が必要に
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 DEBUG = False
 
