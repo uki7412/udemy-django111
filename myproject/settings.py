@@ -142,11 +142,11 @@ AWS_S3_OBJECT_PARAMETERS = {
 }
 
 AWS_LOCATION = 'media'
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.s3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 # 画像はどこにおきますか
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = "https:%s/%s/" %(AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+MEDIA_URL = "https://%s/%s/" %(AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
